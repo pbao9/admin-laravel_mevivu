@@ -17,7 +17,7 @@ class RegisterRequest extends BaseRequest
             'fullname' => ['required', 'string'],
             'phone' => ['required', 'regex:/((09|03|07|08|05)+([0-9]{8})\b)/', 'unique:App\Models\User,phone'],
             'email' => ['required', 'email', 'unique:App\Models\User,email'],
-            'password' => ['required', 'string', 'confirmed'],
+            'password' => ['required', 'string'],
         ];
     }
 }

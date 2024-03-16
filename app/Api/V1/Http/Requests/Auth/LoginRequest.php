@@ -14,7 +14,7 @@ class LoginRequest extends BaseRequest
     protected function methodPost()
     {
         return [
-            'username' => 'required',
+            'email' => 'required',
             'password' => 'required'
         ];
     }

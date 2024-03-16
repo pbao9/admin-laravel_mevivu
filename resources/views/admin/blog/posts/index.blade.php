@@ -6,14 +6,16 @@
 @endpush
 @push('custom-css')
     <style>
-        .select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__rendered .select2-selection__choice{
+        .select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__rendered .select2-selection__choice {
             font-size: 0.7rem;
         }
-        .select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__rendered .select2-selection__choice .select2-selection__choice__remove{
+
+        .select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__rendered .select2-selection__choice .select2-selection__choice__remove {
             width: 0.5rem;
             height: 0.5rem;
         }
-        .select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__rendered .select2-selection__choice{
+
+        .select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__rendered .select2-selection__choice {
             align-items: center;
         }
     </style>
@@ -47,17 +49,16 @@
 @endsection
 
 @push('libs-js')
-<!-- button in datatable -->
-<script src="{{ asset('/public/vendor/datatables/buttons.server-side.js') }}"></script>
-<script src="{{ asset('/public/libs/select2/dist/js/select2.min.js') }}"></script>
-<script src="{{ asset('/public/libs/select2/dist/js/i18n/'.trans()->getLocale().'.js') }}"></script>
+    <!-- button in datatable -->
+    <script src="{{ asset('/public/vendor/datatables/buttons.server-side.js') }}"></script>
+    <script src="{{ asset('/public/libs/select2/dist/js/select2.min.js') }}"></script>
+    <script src="{{ asset('/public/libs/select2/dist/js/i18n/' . trans()->getLocale() . '.js') }}"></script>
 @endpush
 
 @push('custom-js')
+    {{ $dataTable->scripts() }}
 
-{{ $dataTable->scripts() }}
-
-@include('admin.scripts.datatable-toggle-columns', [
-    'id_table' => $dataTable->getTableAttribute('id')
-])
+    @include('admin.scripts.datatable-toggle-columns', [
+        'id_table' => $dataTable->getTableAttribute('id'),
+    ])
 @endpush

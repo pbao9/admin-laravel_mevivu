@@ -16,7 +16,7 @@ class CheckAccessTokenApi
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->header('X-TOKEN-ACCESS') === config('custom_api.X_TOKEN_ACCESS')){
+        if ($request->header('X-TOKEN-ACCESS') === config('custom_api.X_TOKEN_ACCESS')) {
             return $next($request);
         }
         return response()->json([

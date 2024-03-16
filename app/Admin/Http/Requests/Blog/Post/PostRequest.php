@@ -37,7 +37,7 @@ class PostRequest extends BaseRequest
             'tag_id' => ['nullable', 'array'],
             'tag_id.*' => ['nullable', 'exists:App\Models\Tag,id'],
             'title' => ['required', 'string'],
-            'slug' => ['required', 'string', 'unique:App\Models\Post,slug,'.$this->id],
+            'slug' => ['required', 'string', 'unique:App\Models\Post,slug,' . $this->id],
             'feature_image' => ['required'],
             'status' => ['required', new Enum(DefaultStatus::class)],
             'excerpt' => ['nullable'],

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
@@ -7,6 +8,7 @@ class RepositoryServiceProvider extends ServiceProvider
 {
     protected $repositories = [
         'App\Repositories\Setting\SettingRepositoryInterface' => 'App\Repositories\Setting\SettingRepository',
+        'App\Repositories\Blog\PostRepositoryInterface' => 'App\Repositories\Blog\PostRepository',
     ];
 
     /**
@@ -16,16 +18,16 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        foreach($this->repositories as $interface => $implement){
+        foreach ($this->repositories as $interface => $implement) {
             $this->app->singleton($interface, $implement);
         }
     }
-     /**
+    /**
      * Bootstrap services.
      *
      * @return void
      */
-    public function boot(){
-
+    public function boot()
+    {
     }
 }

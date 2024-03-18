@@ -12,15 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function(){
-    return to_route('admin.dashboard');
-});
 
-// Route::controller(App\Http\Controllers\Auth\ResetPasswordController::class)
-// ->prefix('/reset-password')
-// ->as('password.reset.')
-// ->group(function(){
-//     Route::get('/edit', 'edit')->name('edit')->middleware('signed');
-//     Route::put('/update', 'update')->name('update');
-//     Route::get('/success', 'success')->name('success');
-// });
+
+Route::controller(App\Http\Controllers\Blog\BlogController::class)
+    ->prefix('/')
+    ->as('post.')
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/{slug}', 'showPost')->name('show');
+    });

@@ -29,14 +29,4 @@ class CategoryRepository extends EloquentRepository implements CategoryRepositor
             ->toFlatTree();
         return $this->instance;
     }
-
-    public function searchAllLimit($keySearch = '', $meta = [], $limit = 10)
-    {
-
-        $this->instance = $this->model->where('name', 'like', "%{$keySearch}%");
-
-        $this->applyFilters($meta);
-
-        return $this->instance->published()->limit($limit)->get();
-    }
 }

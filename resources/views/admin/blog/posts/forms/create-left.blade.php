@@ -19,8 +19,7 @@
         <div class="col-12">
             <div class="mb-3">
                 <label class="control-label">@lang('excerpt')</label>
-                {{-- <textarea class="form-control" name="excerpt" rows="5">{{ old('excerpt') }}</textarea> --}}
-                <textarea name="excerpt" class="ckeditor visually-hidden">{{ old('excerpt') }}</textarea>
+                <textarea class="form-control" name="excerpt" rows="5">{{ old('excerpt') }}</textarea>
             </div>
         </div>
     </div>
